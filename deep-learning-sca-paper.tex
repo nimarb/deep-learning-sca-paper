@@ -55,7 +55,7 @@
 % *** GRAPHICS RELATED PACKAGES ***
 %
 \ifCLASSINFOpdf
-  % \usepackage[pdftex]{graphicx}
+  \usepackage[pdftex]{graphicx}
   % declare the path(s) where your graphic files are
   % \graphicspath{{../pdf/}{../jpeg/}}
   % and their extensions so you won't have to specify these with
@@ -72,13 +72,6 @@
   % every instance of \includegraphics
   % \DeclareGraphicsExtensions{.eps}
 \fi
-% latex, and pdflatex in dvi mode, support graphics in encapsulated
-% postscript (.eps) format. pdflatex in pdf mode supports graphics
-% in .pdf, .jpeg, .png and .mps (metapost) formats. Users should ensure
-% that all non-photo figures use a vector format (.eps, .pdf, .mps) and
-% not a bitmapped formats (.jpeg, .png). IEEE frowns on bitmapped formats
-% which can result in "jaggedy"/blurry rendering of lines and letters as
-% well as large increases in file sizes.
 
 % *** MATH PACKAGES ***
 %
@@ -332,26 +325,33 @@ topic in a broader context.
 % \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-In general a scientific paper starts with an introduction to the topic.
+To protect data against tampering and inspection by 3rd parties, encryption is commonly used to make data only accessible to people possessing the relevant credentials to access said data. Encryption provides in many cases privacy, integrity and authenticity of data exchanged by two or more parties.
+
+\subsection{The Advanced Encryption Standard}
+There are many encryption algorithms available to use for data encryption, this paper focuses on the use of the block cipher Advanced Encryption Standard (henceforth AES) with a 128bit key. AES expands a single 128bit key to 11 round keys which are then used to encrypt the given data. It is important to note, that a compromise of any of the 11 round keys enables an attacker to reconstruct the initial 128bit key and thus decrypt the whole data set. The AES algorithm encrypts data in batches of 128bits or 16bytes. Should a block be smaller than 16bytes, padding will be appended to it. 
+
+\subsection{Side Channel Analysis}
+Side Channel Analysis (henceforth SCA) refers to a technique used to break encryption schemes by using data indirectly related to the cryptographic algorithm. Even a theoretically perfectly safe cryptographic algorithm can be subject to SCA and be broken by it. SCA uses data such as power consumption of an IC, electro magnetic emissions or even emitted sound to reconstruct the entire or parts of the key used to encrypt the data. Therefore, to protect against SCA it is vital to pay attention not only on the theoretical safty of an encryption algorithm but also on its implementation.
+
+What is side channel analysis with regard to cryptography?
 
 \section{State of the Art}
-In this section an analysis of the available literature on the topic is done.
-This section may be split or subdivided into several sections or subsections.
+Where can SCA be applied?
 
-\subsection{Subsection Heading Here}
-Subsection text here.
+\subsection{The state of Side Channel Analysis}
+Current state of SCA: Simple power analysis, differential power analysis, template attacks
+How do they work/what is the difference between the three?
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsubsection{Subsubsection Heading Here}
-Subsubsection text here.
+\subsection{Where Machine Learning used in Template Attacks}
+Machine learning used in template attacks -> path to using deep learning techniques?
 
-\section{Please Note}
+\section{HAUPTTEIL}
 Regular research papers need at least two additional sections here. One section
 for contributions and methods and one section for the results. For seminar
 papers these sections can be omitted. 
-
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -375,10 +375,6 @@ papers these sections can be omitted.
 %\caption{Simulation Results}
 %\label{fig_sim}
 %\end{figure}
-
-% Note that IEEE typically puts floats only at the top, even when this
-% results in a large percentage of a column being occupied by floats.
-
 
 % An example of a double column floating figure using two subfigures.
 % (The subfig.sty package must be loaded for this to work.)
@@ -440,7 +436,6 @@ Put the conclusions of the work here. The conclusion is like the abstract with
 an additional discussion of open points.
 
 
-
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
 % or
@@ -478,7 +473,6 @@ an additional discussion of open points.
 \ifCLASSOPTIONcaptionsoff
   \newpage
 \fi
-
 
 
 % trigger a \newpage just before the given reference
@@ -530,10 +524,6 @@ H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
 %\begin{IEEEbiographynophoto}{John Doe}
 %Biography text here.
 %\end{IEEEbiographynophoto}
-
-% insert where needed to balance the two columns on the last page with
-% biographies
-%\newpage
 
 %\begin{IEEEbiographynophoto}{Jane Doe}
 %Biography text here.
