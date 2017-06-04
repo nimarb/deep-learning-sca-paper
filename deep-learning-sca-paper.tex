@@ -8,11 +8,12 @@
 %% April 2011, Hermann Seuschek
 %%
 
-\documentclass[10pt,        % Don't change the font size!
-               a4paper,     % Don't change the paper size!
-               journal,     % Journal paper format
+\documentclass[journal]{IEEEtran}
+%\documentclass[10pt,        % Don't change the font size!
+%               a4paper,     % Don't change the paper size!
+%               journal,     % Journal paper format
 %               draft       % Enable this parameter to get a draft version.
-               ]{IEEEtran}
+%               ]{IEEEtran}
 \makeatletter
 
 
@@ -23,28 +24,9 @@
 \usepackage[utf8]{inputenc}
 \usepackage[T1]{fontenc}
 
-%
-% If IEEEtran.cls has not been installed into the LaTeX system files,
-% manually specify the path to it like:
-% \documentclass[journal]{../sty/IEEEtran}
-
-% Some very useful LaTeX packages include:
-% (uncomment the ones you want to load)
-% *** MISC UTILITY PACKAGES ***
-%
-%\usepackage{ifpdf}
-% Heiko Oberdiek's ifpdf.sty is very useful if you need conditional
-% compilation based on whether the output is pdf or dvi.
-% usage:
-% \ifpdf
-%   % pdf code
-% \else
-%   % dvi code
-% \fi
-
 % *** CITATION PACKAGES ***
 %
-\usepackage{cite}
+%\usepackage{cite}
 % \cite{} output to follow that of IEEE. Loading the cite package will
 % result in citation numbers being automatically sorted and properly
 % "compressed/ranged". e.g., [1], [9], [2], [7], [5], [6] without using
@@ -226,6 +208,12 @@
 \usepackage{url}
 % \url{my_url_here}.
 
+\usepackage{hyperref}
+\hypersetup{colorlinks=false}
+
+%\usepackage[backend=biber,sortlocale = auto, isbn = false, doi=false, citestyle = numeric-comp,firstinits=true]{biblatex}
+%\addbibresource{literature.bib}
+
 % correct bad hyphenation here
 \hyphenation{op-tical net-works semi-conduc-tor}
 
@@ -310,9 +298,9 @@ topic in a broader context.
 % in the abstract anyway.
 
 % Note that keywords are not normally used for peerreview papers.
-%\begin{IEEEkeywords}
-%IEEEtran, journal, \LaTeX, paper, template.
-%\end{IEEEkeywords}
+\begin{IEEEkeywords}
+deep learning, side channel analysis, side channel attack, encryption, AES
+\end{IEEEkeywords}
 
 % For peer review papers, you can put extra information on the cover
 % page as needed:
@@ -325,13 +313,13 @@ topic in a broader context.
 % \IEEEpeerreviewmaketitle
 
 \section{Introduction}
-To protect data against tampering and inspection by 3rd parties, encryption is commonly used to make data only accessible to people possessing the relevant credentials to access said data. Encryption provides in many cases privacy, integrity and authenticity of data exchanged by two or more parties.
+Data encryption is commonly employed to restrict data access to selected people or endpoints. Proper encryption provides privacy, integrity and authenticity of data exchanged between two or more parties over an insecure connection. Therefore, an encryption key (or a pair of keys for asymmetric encryption) is generated and selected data is encrypted with it, so that the data can only be read or modified by an endpoint who owns the same encryption key. For symmetric encryption, where the same secret key is used to encrypt and decrypt data, the key has to be shared over a secure connection beforehand, whereasa symmetric encryption provides key pairs, one of which is used to encrypt and one is used to decrypt data. That enables two parties to exchange data securely over an insecure connection by publishing the key used for encryption and keeping the key used for decryption private. This paper will only consider symmetric encryption, although techniques discuessed could also in part be applied to asymmetric encryption algorithms.
 
 \subsection{The Advanced Encryption Standard}
-There are many encryption algorithms available to use for data encryption, this paper focuses on the use of the block cipher Advanced Encryption Standard (henceforth AES) with a 128bit key. AES expands a single 128bit key to 11 round keys which are then used to encrypt the given data. It is important to note, that a compromise of any of the 11 round keys enables an attacker to reconstruct the initial 128bit key and thus decrypt the whole data set. The AES algorithm encrypts data in batches of 128bits or 16bytes. Should a block be smaller than 16bytes, padding will be appended to it. 
+While there are many encryption algorithms available, this paper focuses on the most popular symmetric block cipher: the Advanced Encryption Standard (henceforth AES) with a 128bit key. AES expands a single 128bit key to 11 round keys which are then used to encrypt the given data. It is important to note, that a compromise of any of the 11 round keys enables an attacker to reconstruct the initial 128bit key and thus decrypt the whole encrypted data set. The AES algorithm encrypts data in blocks of 128bits or 16bytes. Should a block be smaller than 16bytes, padding will be appended until the block size reaches 16bytes. 
 
 \subsection{Side Channel Analysis}
-Side Channel Analysis (henceforth SCA) refers to a technique used to break encryption schemes by using data indirectly related to the cryptographic algorithm. Even a theoretically perfectly safe cryptographic algorithm can be subject to SCA and be broken by it. SCA uses data such as power consumption of an IC, electro magnetic emissions or even emitted sound to reconstruct the entire or parts of the key used to encrypt the data. Therefore, to protect against SCA it is vital to pay attention not only on the theoretical safty of an encryption algorithm but also on its implementation.
+Side Channel Analysis (henceforth SCA) refers to a technique used to break encryption schemes by using data indirectly generated by the implementation of the cryptographic algorithm. Even a theoretically perfectly safe cryptographic algorithm can be subject to SCA and be broken by it. SCA uses side channels such as the power consumption of an integrated circuit (IC), electro magnetic emissions or even emitted sound to reconstruct the entire or parts of the secret key used to encrypt the data. It is possible to infer the secret key, because some algorithms' implementations have a program flow which is dependant on the secret key data. That means, that a certain loop will only execute if the current key bit is zero, therefore the power consumption of the IC will measurably increase. Furthermore, power modelling is used to predict an ICs power consumption based on the secret key data. For example, HAMMING WEIGHT, HAMMING DISTANCE... Therefore, to protect against SCA it is vital to pay attention not only on the theoretical safety of an encryption algorithm but also on its implementation.
 
 What is side channel analysis with regard to cryptography?
 
@@ -339,19 +327,29 @@ What is side channel analysis with regard to cryptography?
 Where can SCA be applied?
 
 \subsection{The state of Side Channel Analysis}
+Side channel attacks were first developed in 1996 by Paul Kocher \cite{first-sca:kocher} in the form of timing attacks. Timing attacks exploit an implementation's execution flow dependance on secret key data, which results in a different execution time if a key bit is for example 0 rather than 1. Later, SCAs have been extended to infer a secret key by analysing a processor's power consumption and its dependance on secret key data. 
+
+\subsubsection{Simple Power Analysis}
+\subsubsection{Differential Power Analysis} 
+\subsubsection{High-order Differential Power Analysis}
+\subsubsection{Template Attacks}
 Current state of SCA: Simple power analysis, differential power analysis, template attacks
 How do they work/what is the difference between the three?
 
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
-\subsection{Where Machine Learning used in Template Attacks}
+\subsection{How Machine Learning used in Template Attacks}
 Machine learning used in template attacks -> path to using deep learning techniques?
+SVM / RF trained on template models -> used to extract key from "final" model
 
-\section{HAUPTTEIL}
+\section{Theory}
 Regular research papers need at least two additional sections here. One section
 for contributions and methods and one section for the results. For seminar
 papers these sections can be omitted. 
+
+\section{Experimental results}
+Show the results from the paper which covered the same topic.
 
 % An example of a floating figure using the graphicx package.
 % Note that \label must occur AFTER (or within) \caption.
@@ -398,7 +396,6 @@ papers these sections can be omitted.
 % captions (using the optional argument to \subfloat), but instead will
 % reference/describe all of them (a), (b), etc., within the main caption.
 
-
 % An example of a floating table. Note that, for IEEE style tables, the 
 % \caption command should come BEFORE the table. Table text will default to
 % \footnotesize as IEEE normally uses this smaller font for tables.
@@ -423,7 +420,6 @@ papers these sections can be omitted.
 %\end{tabular}
 %\end{table}
 
-
 % Note that IEEE does not put floats in the very first column - or typically
 % anywhere on the first page for that matter. Also, in-text middle ("here")
 % positioning is not used. Most IEEE journals use top floats exclusively.
@@ -434,7 +430,6 @@ papers these sections can be omitted.
 \section{Conclusion}
 Put the conclusions of the work here. The conclusion is like the abstract with
 an additional discussion of open points.
-
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
@@ -450,7 +445,6 @@ an additional discussion of open points.
 % starts a section numbered zero.)
 %
 
-
 % \appendices
 % \section{Proof of the First Zonklar Equation}
 % Appendix one text goes here.
@@ -460,13 +454,10 @@ an additional discussion of open points.
 % \section{}
 % Appendix two text goes here.
 
-
 % use section* for acknowledgement
 %\section*{Acknowledgment}
 
-
 %The authors would like to thank...
-
 
 % Can use something like this to put references on a page
 % by themselves when using endfloat and the captionsoff option.
@@ -483,50 +474,7 @@ an additional discussion of open points.
 % The "triggered" command can be changed if desired:
 %\IEEEtriggercmd{\enlargethispage{-5in}}
 
-% references section
-
-% can use a bibliography generated by BibTeX as a .bbl file
-% BibTeX documentation can be easily obtained at:
-% http://www.ctan.org/tex-archive/biblio/bibtex/contrib/doc/
-% The IEEEtran BibTeX style support page is at:
-% http://www.michaelshell.org/tex/ieeetran/bibtex/
-%\bibliographystyle{IEEEtran}
-% argument is your BibTeX string definitions and bibliography database(s)
-%\bibliography{IEEEabrv,../bib/paper}
-%
-% <OR> manually copy in the resultant .bbl file
-% set second argument of \begin to the number of references
-% (used to reserve space for the reference number labels box)
-\begin{thebibliography}{1}
-
-\bibitem{IEEEhowto:kopka}
-H.~Kopka and P.~W. Daly, \emph{A Guide to \LaTeX}, 3rd~ed.\hskip 1em plus
-  0.5em minus 0.4em\relax Harlow, England: Addison-Wesley, 1999.
-
-\end{thebibliography}
-
-% biography section
-% 
-% If you have an EPS/PDF photo (graphicx package needed) extra braces are
-% needed around the contents of the optional argument to biography to prevent
-% the LaTeX parser from getting confused when it sees the complicated
-% \includegraphics command within an optional argument. (You could create
-% your own custom macro containing the \includegraphics command to make things
-% simpler here.)
-%\begin{biography}[{\includegraphics[width=1in,height=1.25in,clip,keepaspectratio]{mshell}}]{Michael Shell}
-% or if you just want to reserve a space for a photo:
-
-%\begin{IEEEbiography}{Michael Shell}
-%Biography text here.
-%\end{IEEEbiography}
-
-% if you will not have a photo at all:
-%\begin{IEEEbiographynophoto}{John Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
-
-%\begin{IEEEbiographynophoto}{Jane Doe}
-%Biography text here.
-%\end{IEEEbiographynophoto}
+\bibliographystyle{IEEEtran}
+\bibliography{IEEEabrv,literature}
 
 \end{document}
