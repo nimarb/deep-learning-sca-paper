@@ -346,6 +346,7 @@ Differential Power Analysis (henceforth DPA) is similar to SPA because it also t
 High-order Differential Power Analysis (henceforth HO-DPA) is similar to DPA but additionally, further power traces are taken at multiple steps of the cryptographic operation. HO-DPA allows to attack implementations using masking to hide cryptographic operations, by taking power traces at the mask generation, thereby demasking the final encryption operation. However, due to taking many different traces and correlating them with one another, HO-DPAs are highly complex and not used when a DPA or a SPA could also viably attack an implementation.
 
 \subsubsection{Template Attacks}
+\label{subsec:template}
 A Template Attack is a very targeted attack on an implementation of a cryptographic algorithm. The premise is, that the attacker only has restricted access to the target machine, but ubiquitous access to similar machines containing a varying secret key. The attacker can now execute encryption operations while varying the secret key and measuring the machine's power consumption. The goal is to acquire a large labeled data set, mapping power consumption to secret key of this specific machine. Afterwards, the attacker trains a machine learning model, such as a Support Vectore Machine (SVM) with the model to be able to determine the secret key by using the power consumption. In the end, the attacker obtains one or two powertraces of the target machine during an encryption or decryption operation and feeds the powertrace into the SVM for analysis. The SVM will now output a potential secret key.
 
 % needed in second column of first page if using \IEEEpubid
@@ -353,9 +354,14 @@ A Template Attack is a very targeted attack on an implementation of a cryptograp
 
 \section{Theory}
 \subsection{Convolutional Neural Networks}
+
 \subsection{Stacked Auto-Encoders}
 \subsection{Recurrent Neural Networks}
 \subsection{Long and Short Term Memory (RNN)}
+
+\subsection{Using Deep Learning to improve Side Channel Analysis}
+Deep Learning assists Side Channel Analysis in that it provides a new method of ranking possible key values during training of the Neural Network. Afterwards, the attack itself is performed in the same manner as a Template Attack \autoref{subsec:template} 
+
 Regular research papers need at least two additional sections here. One section
 for contributions and methods and one section for the results. For seminar
 papers these sections can be omitted. 
