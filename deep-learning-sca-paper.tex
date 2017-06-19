@@ -340,19 +340,25 @@ High-order Differential Power Analysis (henceforth HO-DPA) is similar to DPA but
 \label{subsec:template}
 A Template Attack is a very powerful, targeted attack on an implementation of a cryptographic algorithm. The premise is, that the attacker has restricted access to the target machine, but ubiquitous access to similar machines containing a varying secret key. The attacker can now execute many encryption operations while varying the secret key and recording power traces. The goal is to acquire a large labelled data set, which maps power consumption to key bits on the specific type of machine. Afterwards, the attacker trains a machine learning model using the previously acquired labelled dataset. For example, a Support Vector Machine (SVM) is trained to rank key hypotheses given power traces as data input. Finally, the attacker obtains a small number of power traces from the target machine containing the secret key during an encryption or decryption operation and feeds the power trace along with the key hypotheses into the SVM for analysis. The SVM will now rank the potentially correct key the highest, resulting in a successful attack.
 
+$ f_z(L|Z=z) \simeq \dfrac{1}{(2\pi)\^{d}det(\Sigma_z)}exp(-\frac{1}{2}(L-\mu_z)\^{T}\Sigma_z(L-\mu_z)) $
+
 % needed in second column of first page if using \IEEEpubid
 %\IEEEpubidadjcol
 
 \section{Theory}
 \subsection{Using Deep Learning over Machine Learning}
 DL techniques differentiate themselves from ML techniques in that ML relies on features selected by the attacker manually, for example power traces are correlated with hypothetical key values and subsequently points of interest (POIs) chosen based on the correlation. Using DL techniques, the input consists of raw data and the NN chooses the POIs itself. In fact, applying a principal component analysis before feeding the data into the NN for dimensionality reduction reduces the NN's effectiveness as shown in \cite[p.~15]{breaking-crypto-dl:prouff} due to possibly removing vital information to achieve lower dimensional data.
+
 \subsection{Multi layer perceptron}
 \label{sc:mlp}
-A Multi layer perceptron (MLP) is a representation of a single neuron used in computer science. It consists of one or multiple inputs which are multiplied by respective weights and then fed into an activation function. The activation function then determines the output of a single MLP. A popular choice for an activation function is the rectified linear unit (ReLU): $ f(x)=max(0, x) $. When training MLPs, the output is compared to the desired output and the error is calculated: $ MLP ERROR FORMULAR $. Using the gradient descend algorithm, the weights are then adjusted step by step to minimise the error. 
+A Multilayer perceptron (MLP) is a Neural Network built out of perceptrons, which are single neuron representations often used in computer science. A perceptron consists of one or multiple inputs which are multiplied by respective weights and then fed into an activation function. The activation function then determines the output of a single perceptron. A popular choice for an activation function is the rectified linear unit (ReLU): $ f(x)=max(0, x) $, because the output is not limited to a value between "1" and "-1" only. A MLP consists of a number of perceptrons ordered into layers, of which each perceptron is connected to every perceptron in the following layer. When training MLPs, the predicted output of a perceptron in the last layer $ \hat{Y}\_i $ is compared to the desired output $ Y_i $ and the error is calculated: $ E_i = (\hat{Y}_i - Y_i)\^{2} $. The gradient descend algorithm is then used to adjust the weights step by step to minimise the error and thus train the NN. 
+
 \subsection{Convolutional Neural Networks}
 Convolutional Neural Networks (henceforth CNN) are Neural Networks (NN) which have recently risen in popularity due to their strength in classifying images. They are good at extracting features from input data represented in a 2nd order tensor invariant from the features scale, rotation or vicinity. Feature maps are created from the input through stacked convolutional layers until a reasonably small and thus dense feature map is created. The extracted feature maps do not represent features which commonly are extracted manually. 
+
 \subsubsection{Convolutional layer}
 The Convolutional layer of a CNN is responsible for extracting features from the inputs. A feature map is extracted from the input data by convoluting a filter tensor with the input tensor. The filter is a 2nd order tensor of a smaller size than the input and usually initialised with small random variables which are adjusted in the training phase. As displayed in XXXX TODO. After one convolution the output size decreases but still represents the same information, thus extracting features, a feature map.  
+
 \subsubsection{Fully connected layer}
 \label{sssec:fcl}
 A fully connected layer (FCL) is a layer of multiple Multi layer perceptrons (MLP, \autoref{sc:mlp}) of which each is connected to every MLP in the subsequent layer. FCL are commonly used as output layer in a CNN because it is very easy to tune it to the desired number of outputs per calculation cycle.
@@ -370,7 +376,7 @@ Good for for data which has connections to itself in i.e. different points in ti
 \subsection{Long and Short Term Memory (RNN)}
 
 \subsection{Using Deep Learning to improve Side Channel Analysis}
-Deep Learning assists Side Channel Analysis in that it provides a new method of profiling, and subsequently a new engine for attacking. DL techniques can be used in Template Attacks (\autoref{subsec:template}) in the profiling phase instead of the Gaussian assumption of the leakage. A NN is then trained instead using the available labelled data set of power traces with ZUGEHÖRIGEN key data. First, power traces are recorded during cryptographic operations which use the key data. In this case, \SI{1000}{piece} traces per key byte are recorded. 
+Deep Learning assists Side Channel Analysis in that it provides a new method of profiling, and subsequently a new engine for attacking as well. DL techniques can be used in Template Attacks (\autoref{subsec:template}) in the profiling phase instead of the Gaussian assumption of the leakage. A NN is then trained instead using the available labelled data set of power traces with corresponding key data. First, power traces are recorded during cryptographic operations which use the key data. In this case, \SI{1000}{piece} traces per key byte were recorded. 
 
 Afterwards, the Side Channel Attack itself is performed in the same manner as a Template Attack \autoref{subsec:template}. The trained NN can be of different types as discussed above and 
 
