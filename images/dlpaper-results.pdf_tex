@@ -1,0 +1,95 @@
+%% Creator: Inkscape inkscape 0.92.1, www.inkscape.org
+%% PDF/EPS/PS + LaTeX output extension by Johan Engelen, 2010
+%% Accompanies image file 'dlpaper-results.pdf' (pdf, eps, ps)
+%%
+%% To include the image in your LaTeX document, write
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics{<filename>.pdf}
+%% To scale the image, write
+%%   \def\svgwidth{<desired width>}
+%%   \input{<filename>.pdf_tex}
+%%  instead of
+%%   \includegraphics[width=<desired width>]{<filename>.pdf}
+%%
+%% Images with a different path to the parent latex file can
+%% be accessed with the `import' package (which may need to be
+%% installed) using
+%%   \usepackage{import}
+%% in the preamble, and then including the image with
+%%   \import{<path to file>}{<filename>.pdf_tex}
+%% Alternatively, one can specify
+%%   \graphicspath{{<path to file>/}}
+%% 
+%% For more information, please see info/svg-inkscape on CTAN:
+%%   http://tug.ctan.org/tex-archive/info/svg-inkscape
+%%
+\begingroup%
+  \makeatletter%
+  \providecommand\color[2][]{%
+    \errmessage{(Inkscape) Color is used for the text in Inkscape, but the package 'color.sty' is not loaded}%
+    \renewcommand\color[2][]{}%
+  }%
+  \providecommand\transparent[1]{%
+    \errmessage{(Inkscape) Transparency is used (non-zero) for the text in Inkscape, but the package 'transparent.sty' is not loaded}%
+    \renewcommand\transparent[1]{}%
+  }%
+  \providecommand\rotatebox[2]{#2}%
+  \ifx\svgwidth\undefined%
+    \setlength{\unitlength}{300.92308044bp}%
+    \ifx\svgscale\undefined%
+      \relax%
+    \else%
+      \setlength{\unitlength}{\unitlength * \real{\svgscale}}%
+    \fi%
+  \else%
+    \setlength{\unitlength}{\svgwidth}%
+  \fi%
+  \global\let\svgwidth\undefined%
+  \global\let\svgscale\undefined%
+  \makeatother%
+  \begin{picture}(1,0.78374235)%
+    \put(0,0){\includegraphics[width=\unitlength,page=1]{dlpaper-results.pdf}}%
+    \put(0.09762924,0.03800833){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.12809441,0.05057785){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{1}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=2]{dlpaper-results.pdf}}%
+    \put(0.4584282,0.03779011){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.48889337,0.05035963){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{2}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=3]{dlpaper-results.pdf}}%
+    \put(0.81922716,0.03779011){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{10}}}%
+    \put(0.84969234,0.05035963){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{3}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=4]{dlpaper-results.pdf}}%
+    \put(0.43031999,0.00369156){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Number of queries}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=5]{dlpaper-results.pdf}}%
+    \put(0.07606046,0.06117714){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{0}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=6]{dlpaper-results.pdf}}%
+    \put(0.06097205,0.15968109){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{20}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=7]{dlpaper-results.pdf}}%
+    \put(0.06041091,0.25818504){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{40}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=8]{dlpaper-results.pdf}}%
+    \put(0.0609097,0.35668899){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{60}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=9]{dlpaper-results.pdf}}%
+    \put(0.06084736,0.45519292){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{80}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=10]{dlpaper-results.pdf}}%
+    \put(0.04660066,0.55369687){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{100}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=11]{dlpaper-results.pdf}}%
+    \put(0.04660066,0.65220082){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{120}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=12]{dlpaper-results.pdf}}%
+    \put(0.04660066,0.75070477){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{140}}}%
+    \put(0.03163695,0.22383575){\color[rgb]{0,0,0}\rotatebox{90}{\makebox(0,0)[lb]{\smash{Average rank of the correct key}}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=13]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.72420654){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Autoencoder}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=14]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.69493378){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Convolutional Neural Network}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=15]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.66566104){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Multilayer Perceptron WITH PCA}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=16]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.63638827){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Multilayer Perceptron WITHOUT PCA}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=17]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.60711553){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Template}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=18]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.57784277){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{Random Forest}}}%
+    \put(0,0){\includegraphics[width=\unitlength,page=19]{dlpaper-results.pdf}}%
+    \put(0.6084754,0.54857003){\color[rgb]{0,0,0}\makebox(0,0)[lb]{\smash{LSTM}}}%
+  \end{picture}%
+\endgroup%
