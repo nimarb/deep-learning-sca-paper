@@ -340,7 +340,7 @@ High-order Differential Power Analysis (henceforth HO-DPA) is similar to DPA but
 
 \subsection{Template Attacks}
 \label{subsec:template}
-A Template Attack is a very powerful, targeted attack on an implementation of a cryptographic algorithm. The premise is, that the attacker has restricted access to the target machine, but ubiquitous access to similar machines containing a varying secret key. The attacker can now execute many encryption operations while varying the secret key and recording power traces. The goal is to acquire a large labelled data set, which maps power consumption to key bits on the specific type of machine. Afterwards, the attacker trains a machine learning model using the previously acquired labelled dataset. For example, a Support Vector Machine (SVM) is trained to rank key hypotheses given power traces as data input. Finally, the attacker obtains a small number of power traces from the target machine containing the secret key during an encryption or decryption operation and feeds the power trace along with the key hypotheses into the SVM for analysis. The SVM will now rank the potentially correct key the highest, resulting in a successful attack.
+A Template Attack is a very powerful, targeted attack on an implementation of a cryptographic algorithm. The premise is, that the attacker has restricted access to the target machine, but ubiquitous access to similar machines containing a varying secret key. The attacker can now execute many encryption operations while varying the secret key and recording power traces. The goal is to acquire a large labelled data set, which maps power consumption to key bits on the specific type of machine. Afterwards, uses the Gaussian assumption probability density function (pdf) of $ f_z(L|Z=z) $ (see below) to map the sensitive values $ z $ to power traces $ L $ taken while the sensitive value was processed. Finally, the attacker obtains a small number of power traces from the target machine containing the secret key during an encryption or decryption operation and feeds the power trace or relevant points of interest extracted from it ($ l $) along with the key hypotheses $ k^{*} $ into the pdf for analysis, where the possibility $ p_k^{*},l=f_z(a_j) $ denotes the chance that based on $ l $, $ k $ constitutes the correct key. 
 
 $$ f_z(L|Z=z) \simeq \dfrac{1}{(2\pi)^{d}det(\Sigma_z)}exp(-\frac{1}{2}(L-\mu_z)^{T}\Sigma_z(L-\mu_z)) $$
 
@@ -371,7 +371,7 @@ During the attack phase, power traces corresponding to one secret key are then f
 	\centering
 	\def\svgwidth{\columnwidth}
 	\import{images/}{cnn.pdf_tex}
-	\caption[Short description of a CNN]{The basic structure of a CNN, the trained weights are in the filters of the convolution operation.}
+	\caption[Short description of a CNN]{The basic structure of a CNN, the trained weights are in the filters of the convolution operation. Furthermore, a Normalisation layer can be inserted before the FCL to reduce the impact of the FCL's weights on the output due to high input values into the FCL.}
 	\label{fig:cnn}
 \end{figure}
 
@@ -389,26 +389,25 @@ Pooling layers further reduce the size of the previous stacked layers' outputs b
 Normalisation layers, also sometimes called Softmax layers can be used to convert the previous layers' outputs values into a probability distribution relative to each other. 
 
 \subsection{Stacked Auto-Encoders}
-Stacked Auto-Encoders (AE) consist of an encoder layer followed by multiple FCL (\autoref{sssec:fcl}) and at the end feature a decoder layer. During training the goal of an AE is to reproduce the given input at the output. Its weights are then trained by gradually adding noise to the input data while the network should still output the original, denoised input. The FCLs are generally sized smaller than the number of inputs as to extract a more compact feature set from which the input data can then be recreated. Finally, after training multiple encoding layers, the decoding layer at the end is removed and the trained encoding layers are stacked onto one another to produce a NN. % TODO why? 
+Stacked Auto-Encoders (AE) consist of an encoder layer followed by multiple FCL (\autoref{sssec:fcl}) and at the end feature a decoder layer. During training the goal of an AE is to reproduce the given input at the output. Its weights are then trained by gradually adding noise to the input data while the network should still output the original, denoised input. The FCLs are generally sized smaller than the number of inputs as to extract a more compact feature set from which the input data can then be recreated. Finally, after training multiple encoding layers, the decoding layer at the end is removed and the trained encoding layers are stacked onto one another to produce a NN containing the previously trained feature descriptors.
 
 \subsection{Recurrent Neural Networks}
-Recurrent Neural Networks (RNNs) and its varieties such as Long and Short Term Memory (LSTM) are NNs build similarly to MLPs with the most important difference being that RNNs have a memory unit at each perceptron. Thus it is able to store a state and refer to it in a later point in time. That property is very good for data which is connected across many inputs, for example natural languages where a word in the beginning of a sentence can influence the grammatical correctness of a word placed at the sentence's end. However, SCAs usually do not deal with that dimension of data as for example the power consumption during processing a key byte should not leak data about the subsequent byte.
+Recurrent Neural Networks (RNNs) and its varieties such as Long and Short Term Memory Units (LSTM) are NNs build similarly to MLPs with the most important difference being that RNNs have a memory unit at each perceptron. Thus it is able to store a state and refer to it in a later point in time. That property is very good for data which is connected across many inputs, for example natural languages where a word in the beginning of a sentence can influence the grammatical correctness of a word placed at the sentence's end. However, SCAs usually do not deal with that dimension of data as for example the power consumption during processing a key byte should not leak data about the subsequent byte.
 
 \subsection{Using Deep Learning to improve Side Channel Analysis}
-Deep Learning assists Side Channel Analysis in that it provides a new method of profiling, and subsequently a new engine for attacking as well. DL techniques can be used in Template Attacks (\autoref{subsec:template}) in the profiling phase instead of the Gaussian assumption of the leakage. A NN is then trained instead using the available labelled data set of power traces with corresponding key data. First, power traces are recorded during cryptographic operations which use the key data. In this case, \SI{1000}{piece} traces per key byte were recorded. 
-
-Afterwards, the Side Channel Attack itself is performed in the same manner as a Template Attack \autoref{subsec:template}. The trained NN can be of different types as discussed above and 
-
-The output of a NN in assisting SCA is a vector assigning a probability to each key hypothesis. 
+Deep Learning assists Side Channel Analysis in that it provides a new method of profiling, and subsequently a new engine for attacking as well. DL techniques can be used in Template Attacks (\autoref{subsec:template}) in the profiling phase instead of the Gaussian assumption of the leakage. A NN is then trained instead using the available labelled data set of power traces with corresponding key data \cite{nn-aes:gilmore}. First, power traces are recorded during cryptographic operations which use the key data. In this case, 1000 traces per key byte were recorded. Afterwards, the Side Channel Attack itself is performed in a similar manner to the Template Attack \autoref{subsec:template}. 
 
 \section{Experimental results}
-Deep Learning (DL) techniques can improve SCA significantly if employed correctly. It is however essential to pick the appropriate DL technique for the working data set to get the best or even a better result than without using DL techniques.
+H. Maghrebi et. compared the performance of Template Attacks against Deep Learning based attacks in \cite{breaking-crypto-dl:prouff}. In those experiments, the first SBox of AES was targeted. The AES implementation was not masked and data made available by the DPA Contest V2 \cite{dpacv2:web} was used. In the profiling phase, 1000 power traces per sensitive key value were utilised and the attack phase consisted of the average of 10 attacks using 2000 power traces each. \\
+SCA techniques based on Auto Encoders, Multilayer perceptrons with and without previous feature extraction through Principal Content Analysis (PCA), Convolutional Neural Networks and Long Short Term Memory Units were compared against Template Attacks. \\ 
+\autoref{fig:dlpaper-results} shows the rank of the correct key among all key hypotheses over the number of traces used during the attack phase for comparison (\cite{sca-framework:standaert}). Thus, the attack performs better if fewer power traces are required to get the correct key ranked 1st. \\
+It is noticeable that DL based techniques fair well, CNN, AE and MLP based attacks outperform the Template Attack with the CNN based attack ranking the correct key 1st with only half of the traces required by the classical Template Attack. Furthermore, the MLP based attack performs better without pre-selecting features through PCA which suggests that the NNs feature selection is superior for this use case and the NN uses the slight variations in input data which are discarded by the PCA to reduce the data's dimensionality.
 
 \begin{figure}[ht]
 	\centering
 	\def\svgwidth{\columnwidth}
-	\import{images/}{dlpaper-results2.png}
-	\caption[der kurztext]{der langtext}
+	\import{images/}{dlpaper-results-png.pdf_tex}
+	\caption[Performance comparison of SCA techniques used on the AES]{This illustration shows the evolution of the rank of the correct key with increasing numbers of traces used in an SCA. It illustrates the performance discrepancies of the attack techniques used. The SCA is performed on the first AES SBox. Source: \cite[p.~16]{breaking-crypto-dl:prouff}}
 	\label{fig:dlpaper-results}
 \end{figure}
 
@@ -489,10 +488,8 @@ Deep Learning (DL) techniques can improve SCA significantly if employed correctl
 % stfloats package.
 
 \section{Conclusion}
-
-Furthermore, NNs such as Recurrent Neural Networks and its varieties have not been discussed in this paper but might also be interesting 
-Put the conclusions of the work here. The conclusion is like the abstract with
-an additional discussion of open points.
+In the end, Deep Learning techniques can improve SCA significantly if employed correctly as indicated in \autoref{fig:dlpaper-results} by requiring up to only half of the attack traces needed for a successful TA. By focussing on and specifically tuning the CNN parameters (number of layers and entities per layer) it might be possible to gain an even bigger advantage on Template Attacks. The experimental data also shows that it is essential to pick the appropriate DL technique for the working data set to get the best or even a better result than without using DL techniques, that means that the input data has to be well understood in order to be able to chose a CNN instead of e.g. a LSTM. Understanding the data set is even more important to make the decision if pre-processing like feature extraction on the data is advisable before using the data to train a NN. \\
+Furthermore, NNs such as Recurrent Neural Networks and its varieties have not been discussed in this paper in depth but might be interesting in applications where the obtained power traces are not as clean and well defined and thus could contain dependencies across traces. 
 
 % if have a single appendix:
 %\appendix[Proof of the Zonklar Equations]
