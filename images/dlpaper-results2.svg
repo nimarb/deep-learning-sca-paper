@@ -15,7 +15,10 @@
    version="1.1"
    id="svg8"
    inkscape:version="0.92.1 r15371"
-   sodipodi:docname="dlpaper-results2.svg">
+   sodipodi:docname="dlpaper-results2.svg"
+   inkscape:export-filename="D:\documents\uni\faecher\it-sec-seminar\deep-learning-sca-paper\images\dlpaper-results.png"
+   inkscape:export-xdpi="316.38"
+   inkscape:export-ydpi="316.38">
   <defs
      id="defs2">
     <clipPath
@@ -911,8 +914,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="211.40011"
-     inkscape:cy="148.06672"
+     inkscape:cx="95.328681"
+     inkscape:cy="148.42386"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -920,8 +923,8 @@
      fit-margin-left="0"
      fit-margin-right="0"
      fit-margin-bottom="0"
-     inkscape:window-width="1920"
-     inkscape:window-height="1027"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
      inkscape:window-x="-8"
      inkscape:window-y="-8"
      inkscape:window-maximized="1" />
@@ -933,7 +936,7 @@
         <dc:format>image/svg+xml</dc:format>
         <dc:type
            rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
-        <dc:title></dc:title>
+        <dc:title />
       </cc:Work>
     </rdf:RDF>
   </metadata>
