@@ -1,0 +1,215 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Created with Inkscape (http://www.inkscape.org/) -->
+
+<svg
+   xmlns:dc="http://purl.org/dc/elements/1.1/"
+   xmlns:cc="http://creativecommons.org/ns#"
+   xmlns:rdf="http://www.w3.org/1999/02/22-rdf-syntax-ns#"
+   xmlns:svg="http://www.w3.org/2000/svg"
+   xmlns="http://www.w3.org/2000/svg"
+   xmlns:xlink="http://www.w3.org/1999/xlink"
+   xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
+   xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
+   width="210mm"
+   height="297mm"
+   viewBox="0 0 210 297"
+   version="1.1"
+   id="svg8"
+   sodipodi:docname="aes-concept.svg"
+   inkscape:version="0.92.1 r15371">
+  <defs
+     id="defs2" />
+  <sodipodi:namedview
+     id="base"
+     pagecolor="#ffffff"
+     bordercolor="#666666"
+     borderopacity="1.0"
+     inkscape:pageopacity="0.0"
+     inkscape:pageshadow="2"
+     inkscape:zoom="0.7"
+     inkscape:cx="116.95093"
+     inkscape:cy="826.1"
+     inkscape:document-units="mm"
+     inkscape:current-layer="layer1"
+     showgrid="false"
+     inkscape:window-width="1366"
+     inkscape:window-height="715"
+     inkscape:window-x="-8"
+     inkscape:window-y="-8"
+     inkscape:window-maximized="1" />
+  <metadata
+     id="metadata5">
+    <rdf:RDF>
+      <cc:Work
+         rdf:about="">
+        <dc:format>image/svg+xml</dc:format>
+        <dc:type
+           rdf:resource="http://purl.org/dc/dcmitype/StillImage" />
+      </cc:Work>
+    </rdf:RDF>
+  </metadata>
+  <g
+     inkscape:label="Layer 1"
+     inkscape:groupmode="layer"
+     id="layer1"
+     style="opacity:1">
+    <path
+       sodipodi:type="inkscape:offset"
+       inkscape:radius="-2.9408803"
+       inkscape:original="M 35.640625 41.3125 L 35.640625 65.185547 L 121.91992 65.185547 L 121.91992 41.3125 L 35.640625 41.3125 z "
+       xlink:href="#rect4543"
+       style="opacity:0.41199999;fill:none;fill-opacity:1;stroke:none;stroke-width:1.36500001;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="path4545"
+       inkscape:href="#rect4543"
+       d="M 32.699219,50.136719 V 68.126953 H 113.0957 V 50.136719 Z"
+       transform="translate(-2.9423106,2.9411317)" />
+    <rect
+       style="opacity:0.41199999;fill:#000000;stroke:#000000;stroke-width:1.5464884;stroke-linecap:square;stroke-linejoin:round;stroke-miterlimit:4;stroke-dasharray:none;stroke-dashoffset:0;stroke-opacity:1;paint-order:stroke markers fill"
+       id="rect4543"
+       width="86.280205"
+       height="23.87277"
+       x="35.639938"
+       y="41.312641" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="45.97036"
+       y="22.246925"
+       id="text4487"><tspan
+         sodipodi:role="line"
+         id="tspan4485"
+         x="45.97036"
+         y="22.246925"
+         style="stroke-width:0.26458332">Input</tspan></text>
+    <path
+       style="fill:none;stroke:#000000;stroke-width:1.365;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1;stroke-miterlimit:4;stroke-dasharray:none"
+       d="M 59.333833,28.126854 V 45.766643"
+       id="path4489"
+       inkscape:connector-curvature="0" />
+    <path
+       style="fill:none;stroke:#000000;stroke-width:0.26458332px;stroke-linecap:butt;stroke-linejoin:miter;stroke-opacity:1"
+       d="M 59.868373,62.871894 V 200.24843"
+       id="path4501"
+       inkscape:connector-curvature="0" />
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="35.814117"
+       y="92.806084"
+       id="text4499"><tspan
+         sodipodi:role="line"
+         id="tspan4497"
+         x="35.814117"
+         y="92.806084"
+         style="stroke-width:0.26458332">1. SubBytes</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.201691"
+       y="108.78452"
+       id="text4505"><tspan
+         sodipodi:role="line"
+         id="tspan4503"
+         x="36.201691"
+         y="108.78452"
+         style="stroke-width:0.26458332">2. ShiftRows</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.170685"
+       y="122.7114"
+       id="text4509"><tspan
+         sodipodi:role="line"
+         id="tspan4507"
+         x="36.170685"
+         y="122.7114"
+         style="stroke-width:0.26458332">3. MixColumns</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.460072"
+       y="136.63828"
+       id="text4513"><tspan
+         sodipodi:role="line"
+         id="tspan4511"
+         x="36.460072"
+         y="136.63828"
+         style="stroke-width:0.26458332">4. AddRoundKey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="34.745037"
+       y="212.0083"
+       id="text4517"><tspan
+         sodipodi:role="line"
+         id="tspan4515"
+         x="34.745037"
+         y="212.0083"
+         style="stroke-width:0.26458332">SubBytes</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="36.883194"
+       y="229.11353"
+       id="text4521"><tspan
+         sodipodi:role="line"
+         id="tspan4519"
+         x="36.883194"
+         y="229.11353"
+         style="stroke-width:0.26458332">ShiftRows</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="35.279575"
+       y="247.28786"
+       id="text4525"><tspan
+         sodipodi:role="line"
+         id="tspan4523"
+         x="35.279575"
+         y="247.28786"
+         style="stroke-width:0.26458332">AddRoundKey</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="150.20547"
+       y="49.508415"
+       id="text4529"><tspan
+         sodipodi:role="line"
+         id="tspan4527"
+         x="150.20547"
+         y="49.508415"
+         style="stroke-width:0.26458332">Key</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="167.31071"
+       y="96.013313"
+       id="text4533"><tspan
+         sodipodi:role="line"
+         id="tspan4531"
+         x="167.31071"
+         y="96.013313"
+         style="stroke-width:0.26458332">Round key</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="157.1545"
+       y="214.68098"
+       id="text4537"><tspan
+         sodipodi:role="line"
+         id="tspan4535"
+         x="157.1545"
+         y="214.68098"
+         style="stroke-width:0.26458332">Round key</tspan></text>
+    <flowRoot
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       id="flowRoot4547"><flowRegion
+         id="flowRegion4549"
+         style=""><use
+           x="0"
+           y="0"
+           xlink:href="#path4545"
+           id="use4551" /></flowRegion><flowPara
+         id="flowPara4553">AddRoundKey</flowPara></flowRoot>  </g>
+</svg>
