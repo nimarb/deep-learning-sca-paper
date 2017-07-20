@@ -16,22 +16,35 @@ Out: values
 
 Hi Fabrizio,
 
-ich habe dir bisher noch keine genauere Erklärung zu den Fragen gegeben.
+ich habe dir bisher leider noch keine genauere Erklärung zu den Fragen der genauen in/outputs und des Ablaufs der SCA mit Deep Learning Techniken geschickt. 
 
 Sowohl in der Trainingsphase als auch in der Angriffsphase werden die einzelnen Keybytes individuell angegriffen.
+
 Generell ist es bei den verwendeten NNs in der Trainingsphase so:
 Input:
-Die Anzahl die Neuronen des ersten Layers sind gleich der Anzahl der Samples in dem verwendeten Trace.
-Pro Keybyte werden 1000 traces zum trainieren verwendet, die nacheinander eingespeist werden.
+Die Anzahl die Neuronen des ersten Layers von allen NNs außer CNNs sind gleich der Anzahl der Samples in einem verwendeten Trace, in diesem Fall 3253 sample points.
+Pro sensitive Value z werden 1000 traces zum trainieren verwendet, die nacheinander, vector für vector, eingespeist werden. Bei Convolutional Neural Networks wird der trace in eine 57x57 oder 58x58 mit padding (ich bin mir nicht ganz sicher) eingefügt und so als input Matrix verwendet.
 
 Output: 
-Der letzte Layer des NNs hat dann 256 Neuronen, ein Neuron pro Keybyte Hypothese.
-Der Output ansich ist letztendlich eine Zahl zwischen 1 und 0, welche die Wahrscheinlichkeit darstellt dass der zugehörige Byte der korrekte Keybyte ist.
-Da der Schlüssel bekannt ist wird dann das Delta zwischen predicted und actual result errechnet und damit der Backpropagation algorithmus gestartet um die weights/feature maps zu anzupassen.
+Der letzte Layer der NNs hat 256 Neuronen, also ein Neuron pro Keybyte Hypothese. Das ist identisch für alle NNs, da alle NNs ein fully connected layer (Multi layer perceptron) als output layer verwenden. 
+Der Output ansich ist eine Zahl zwischen 1 und 0, welche die Wahrscheinlichkeit darstellt dass der zugehörige Byte der korrekte Keybyte ist.
+Da der Schlüssel bekannt ist, wird dann das Delta zwischen predicted und actual result errechnet und damit der Backpropagation algorithmus gestartet um die weights/filters anzupassen sodass das Delta zwischen predicted und actual result minimiert wird.
 
 
 In der Angriffsphase läuft es wie folgt ab:
 Input: 
-Die vorher errechneten weights/feature maps werden wieder eingesetzt, das NN ist damit trainiert.
-Pro angegriffenem Keybyte wird nun ein Trace in das NN eingespeist und die Wahrscheinlichkeiten pro Keyhypothese gespeichert. Das wird 20.000 mal wiederholt. Anschließend wird die Maximum Likeliness errechnet, woraus dann die richtigen Keybytes geschätzt werden und anschließend zu dem Schlüssel zusammen gesetzt werden können.
+Die vorher errechneten weights bzw filters bei CNNs werden wieder eingesetzt, das NN ist damit trainiert. Als Input werden wie beim Training weiterhin einzelne traces verwendet.
+Pro angegriffenem Keybyte wird nun ein Trace in das NN eingespeist und die Wahrscheinlichkeiten pro Keyhypothese gespeichert. Das wird 10x2.000 mal wiederholt. 
+
+Output:
+Von den ausgegebenen Wahrscheinlichkeiten wird anschließend die Maximum Likelihood errechnet, woraus dann die Keybytes geordnet werden und die mit der größten Wahrscheinlichkeit werden anschließend zu einem hypothetischen Schlüssel zusammen gesetzt (der Schritt ist vergleichbar mit einer Template Attacke).
+
+Die Aussage in dem Paper, dass die Angriffsphase genau gleich einer Template Attack abläuft, verstehe ich so, dass nach dem Angriff mit Benutzung eines NNs der Output der selbe ist, nähmlich mit Wahrscheinlichkeiten versehne Keyhypothesen. Nun werden diese gleich ausgewertet und zwar durch das Berechnen des Log-maximum likelihoods, wodurch dann der korrekt geglaubte Key die höchste Wahrscheinlichkeit bekommt ("geranked wird").
+
+Spezifisch für die CNNs werden 8 filter (Matrizen die sozusagen als Kernel funktionieren) für die Faltungen eingesetzt mit einer Größe von 16x16 . Die filter werden zu beginn mit kleinen Zufallsvariablen initialisiert und anschließend durch Backpropagation angepasst. 
+
+Ich hoffe das erklärt etwas besser den genauen Ablauf des Verfahrens.
+
+Viele Grüße
+Nimar
 

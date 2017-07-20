@@ -10,9 +10,9 @@
    xmlns="http://www.w3.org/2000/svg"
    xmlns:sodipodi="http://sodipodi.sourceforge.net/DTD/sodipodi-0.dtd"
    xmlns:inkscape="http://www.inkscape.org/namespaces/inkscape"
-   width="137.76724mm"
-   height="51.11264mm"
-   viewBox="0 0 137.76724 51.11264"
+   width="137.60533mm"
+   height="56.005634mm"
+   viewBox="0 0 137.60533 56.005634"
    version="1.1"
    id="svg4578"
    inkscape:version="0.92.1 r15371"
@@ -25,8 +25,8 @@
      inkscape:pageopacity="0.0"
      inkscape:pageshadow="2"
      inkscape:zoom="1.4"
-     inkscape:cx="349.31997"
-     inkscape:cy="63.983329"
+     inkscape:cx="348.48664"
+     inkscape:cy="82.424451"
      inkscape:document-units="mm"
      inkscape:current-layer="layer1"
      showgrid="false"
@@ -250,7 +250,7 @@
      id="layer1"
      inkscape:groupmode="layer"
      inkscape:label="Layer 1"
-     transform="translate(-6.8975738,-70.300597)">
+     transform="translate(-7.1180599,-70.286816)">
     <g
        id="g6452"
        inkscape:label="Grid_Polar:X4:Y4"
@@ -624,15 +624,15 @@
          sodipodi:role="line">Inputs</tspan></text>
     <text
        id="text9785"
-       y="120.14491"
-       x="16.819935"
+       y="126.19254"
+       x="15.686007"
        style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
        xml:space="preserve"><tspan
          style="font-size:7.05555534px;stroke-width:0.26458332"
-         y="120.14491"
-         x="16.819935"
+         y="126.19254"
+         x="15.686007"
          id="tspan9783"
-         sodipodi:role="line">Convolutions</tspan></text>
+         sodipodi:role="line">with Filters</tspan></text>
     <text
        id="text9789"
        y="75.619339"
@@ -768,5 +768,27 @@
          x="120.36656"
          y="84.010406"
          style="stroke-width:0.26458332">Output</tspan></text>
+    <text
+       xml:space="preserve"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       x="25.985373"
+       y="127.46085"
+       id="text4612"><tspan
+         sodipodi:role="line"
+         id="tspan4610"
+         x="25.985373"
+         y="136.82462"
+         style="stroke-width:0.26458332" /></text>
+    <text
+       id="text9785-9"
+       y="119.12988"
+       x="13.05396"
+       style="font-style:normal;font-weight:normal;font-size:10.58333302px;line-height:1.25;font-family:sans-serif;letter-spacing:0px;word-spacing:0px;fill:#000000;fill-opacity:1;stroke:none;stroke-width:0.26458332"
+       xml:space="preserve"><tspan
+         style="font-size:7.05555534px;stroke-width:0.26458332"
+         y="119.12988"
+         x="13.05396"
+         id="tspan9783-2"
+         sodipodi:role="line">Convolutions</tspan></text>
   </g>
 </svg>
